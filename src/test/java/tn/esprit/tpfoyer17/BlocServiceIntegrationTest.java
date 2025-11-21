@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureTestDatabase(replace = Replace.ANY) // use embedded DB for tests
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
-public class BlocServiceIntegrationTest {
+ class BlocServiceIntegrationTest {
 
     @Autowired
     IBlocService blocService;
@@ -37,7 +37,7 @@ public class BlocServiceIntegrationTest {
 
     @Test
     @Order(1)
-    public void testAddBloc() {
+     void testAddBloc() {
         Bloc b = Bloc.builder()
                 .nomBloc("Bloc-Test")
                 .capaciteBloc(10L)
@@ -51,7 +51,7 @@ public class BlocServiceIntegrationTest {
 
     @Test
     @Order(2)
-    public void testGetBloc() {
+     void testGetBloc() {
         Bloc found = blocService.getBlocById(createdBlocId);
         assertNotNull(found);
         assertEquals("Bloc-Test", found.getNomBloc());
@@ -59,7 +59,7 @@ public class BlocServiceIntegrationTest {
 
     @Test
     @Order(3)
-    public void testUpdateBloc() {
+     void testUpdateBloc() {
         Bloc bloc = blocService.getBlocById(createdBlocId);
         bloc.setCapaciteBloc(20L);
         Bloc updated = blocService.updateBloc(bloc);
@@ -68,7 +68,7 @@ public class BlocServiceIntegrationTest {
 
     @Test
     @Order(4)
-    public void testDeleteBloc() {
+     void testDeleteBloc() {
         // create a temporary bloc to delete
         Bloc toDelete = Bloc.builder().nomBloc("ToDelete").capaciteBloc(1L).build();
         Bloc saved = blocService.addBloc(toDelete);
