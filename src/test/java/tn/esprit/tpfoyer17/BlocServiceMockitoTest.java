@@ -22,7 +22,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
-public class BlocServiceMockitoTest {
+ class BlocServiceMockitoTest {
 
     @InjectMocks
     BlocService blocService;
@@ -54,7 +54,7 @@ public class BlocServiceMockitoTest {
     }
 
    @Test
-public void testAffecterChambresABloc_success() {
+ void testAffecterChambresABloc_success() {
 
     when(blocRepository.findById(1L)).thenReturn(Optional.of(sampleBloc));
     when(chambreRepository.findAllById(Arrays.asList(101L, 102L))).thenReturn(sampleChambres);
